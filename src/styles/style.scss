@@ -5,11 +5,15 @@ $secondary-color: #393E46;
 $accent-color: #00ADB5;
 $background-color: #EEEEEE;
 
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-style: normal;
-  font-size: 20;
+  font-size: 20px;
   text-decoration: none;
   font-family: 'Poppins';
 }
@@ -17,6 +21,13 @@ body {
 section {
   background-color: $background-color;
   height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+article {
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 header {
@@ -24,6 +35,12 @@ header {
   height: 100px;
   padding: 35px 82px;
   box-sizing: border-box;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
 
   nav {
     width: 100%;
@@ -74,7 +91,258 @@ header {
   }
 }
 
+header.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(5);
+  background-color: #eeeeeecb;
+  box-shadow: -1px 0 12px rgba(0, 0, 0, 0.5);
+}
+
 .brand-logo {
   width: 110.94px;
   height: 22.4px;
+}
+
+#home {
+  height: fit-content;
+
+  #hero {
+    background: url("../public/background/HomeSection.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1080px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .hero__container {
+      width: 40rem;
+      padding: 0 15rem;
+  
+      h2 {
+        font-size: 40px;
+        font-weight: 1000;
+        
+        span{
+          display: block;
+        }
+      }
+  
+      p {
+        font-size: 20px;
+        margin-bottom: 4rem;
+      }
+  
+      .hero__btn-click-more {
+        border: 1px solid $accent-color;
+        border-radius: 5px;
+  
+        width: 163px;
+        height: 56px;
+        padding: 13px 22px;
+        
+        background-color: rgba(0, 173, 181, 0.12);
+        font-family: inherit;
+        font-size: 18px;
+        text-decoration: none;
+        color: $accent-color;
+        position: relative;
+        overflow: hidden;
+        transition: color 310ms ease-in-out;
+  
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      .hero__btn-click-more:hover{
+        color: white;
+      }
+
+      .hero__btn-click-more::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: $accent-color;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 300ms ease-in-out;
+      }
+      
+      .hero__btn-click-more:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+  }
+
+  #detail {
+    background: url("../public/background/HomeSection2.png");
+    background-repeat: no-repeat;
+    background-size: 1920px;
+    height: 1080px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    h2 {
+      font-size: 40px;
+      font-weight: 1000;
+      margin: 0 0 0 16rem;
+    }
+
+    .detail__box-area {
+      margin: 2rem;
+      height: 40rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+
+      .detail__box-item{
+        width: 496px;
+        height: 497px;
+        position: relative;
+        display: flex;
+        justify-content: end;
+        flex-direction: column;
+
+        .detail__logo__container {
+          background-color: $accent-color;
+          border-radius: 15px;
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          top: 0;
+          left: 25px;
+          z-index: 1;
+          padding: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          i {
+            font-size: 50px;
+            color: white;
+          }
+        }
+
+        .detail__information__container {
+          width: 100%;
+          height: 446px;
+          border-radius: 5px;
+          padding: 2.5rem 2rem;
+          box-sizing: border-box;
+          position: relative;
+
+          .information__title {
+            font-size: 30px;
+            margin: 1rem 0 .5rem;
+          }
+
+          .information__description {
+            margin: 0;
+          }
+
+          a {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 2rem;
+            padding: .2rem;
+
+            i {
+              font-size: 40px;
+              color: $accent-color;
+              display: inline-block;
+              transition: transform,text-shadow 200ms ease-in-out;
+            }
+
+            i:hover {
+              transform: scale(1.05);
+              text-shadow: .5px .5px 5px black;
+            }
+          }
+        }
+      }
+      
+      .detail__box-item:nth-child(1){
+        .detail__information__container{
+          background-color: #B0FCFF;
+
+          i {
+            opacity: 100%;
+          }
+        }
+      }
+      .detail__box-item:nth-child(2){
+        .detail__information__container{
+          background-color: #E1FEFF;
+
+          i {
+            opacity: 50%;
+          }
+        }
+      }
+      .detail__box-item:nth-child(3){
+        .detail__information__container{
+          background-color: #FFFFFF;
+
+          i {
+            opacity: 25%;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5rem 0 1rem;
+
+  .footer__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+    
+    .footer__nav__logo {
+      padding: 0 2rem;
+    }
+
+    .footer__nav__menu {
+      border-left: 1px solid #E9E9E9;
+      padding: 2rem 2rem;
+      list-style: none;
+
+      a {
+        text-decoration: inherit;
+        color: inherit;
+        display: inline-block;
+        font-size: 18px;
+        padding: .6rem;
+        transform: scale(1);
+        transition: color,transform 200ms ease-in-out;
+      }
+
+      a:hover {
+        color: $accent-color;
+        transform: scale(1.1);
+      }
+    }
+  }
 }
