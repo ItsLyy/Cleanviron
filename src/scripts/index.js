@@ -11,10 +11,10 @@ window.addEventListener("DOMContentLoaded", () => {
   navbarLogic();
 });
 
-window.addEventListener("load", () => {
-  app.renderPage();
-})
+// window.addEventListener("load", () => {
+//   app.renderPage();
+// })
 
-window.addEventListener('hashchange', () => {
-  app.renderPage();
-})
+// window.addEventListener('hashchange', () => {
+//   app.renderPage();
+// })
